@@ -1,3 +1,6 @@
+// loadStylesheet (href)
+// load a given stylesheet if not already present on the page
+
 function loadStylesheet (href) {
   // Find all stylesheets in the page
   var links = [...document.querySelectorAll('link')]
