@@ -11,7 +11,7 @@
   "bugs": "https://github.com/ricealexander/glade/issues",
   "license": "ISC",
   "private": true,
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "parcel build index.js",
     "watch": "parcel watch index.js"

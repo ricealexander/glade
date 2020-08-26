@@ -1,1 +1,3 @@
-console.log('Created placeholder index.js')
+import { default as STLPR } from './source'
+
+window.STLPR = STLPR
