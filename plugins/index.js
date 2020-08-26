@@ -6,7 +6,7 @@ import { default as identifyCurrentPage } from './identifyCurrentPage'
 // args [optional]: arguments to pass into plugin
 
 const plugins = [
-  { fn: identifyCurrentPage, enabled: true},
+  { fn: identifyCurrentPage, enabled: true },
 ]
 
 export default plugins

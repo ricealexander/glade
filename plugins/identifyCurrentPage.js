@@ -1,10 +1,10 @@
 function identifyCurrentPage () {
   if (document.body) {
-    document.body.dataset.page = window.STLPR.currentPage
+    document.body.dataset.page = window.Glade.currentPage
   }
 }
 
 export default () => {
-  window.STLPR.onNavigation.push(identifyCurrentPage)
+  window.Glade.onNavigation.push(identifyCurrentPage)
   identifyCurrentPage()
 }

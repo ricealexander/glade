@@ -1,7 +1,7 @@
-import { default as STLPR } from './source'
+import { default as Glade } from './source'
 import { default as plugins } from './plugins'
 
-window.STLPR = STLPR
+window.Glade = Glade
 
 // Run Plugins
 for (const plugin of plugins) {
