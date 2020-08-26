@@ -7,4 +7,9 @@ module.exports = {
   },
 
   'extends': 'webtrinkets',
+
+  rules: {
+    // Anonymous default export is used for initilization of plugins
+    'import/no-anonymous-default-export': 'off',
+  },
 }
