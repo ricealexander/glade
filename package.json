@@ -1,0 +1,27 @@
+{
+  "name": "glade",
+  "version": "1.0.0",
+  "description": "A Utility Library for Custom JavaScript Solutions in the Grove CMS",
+  "author": {
+    "name": "STLPR Digital",
+    "email": "dev@stlpr.org",
+    "url": "https://www.stlpublicradio.org/"
+  },
+  "repository": "github:ricealexander/glade",
+  "bugs": "https://github.com/ricealexander/glade/issues",
+  "license": "ISC",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.js",
+    "watch": "parcel watch index.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-webtrinkets": "git://github.com/ricealexander/eslint-config-webtrinkets#1.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "eslint-plugin-unicorn": "^21.0.0",
+    "parcel": "^1.12.4"
+  }
+}

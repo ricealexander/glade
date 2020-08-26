@@ -1,0 +1,14 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+
+  "search.exclude": {
+    "**/.cache/": true,
+    "**/.git/": true,
+    "**/dist/": true,
+    "**/node_modules/": true
+  }
+}
