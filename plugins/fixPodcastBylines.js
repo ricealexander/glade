@@ -65,6 +65,6 @@ function correctPodcastByline () {
 }
 
 export default () => {
-  window.STLPR.onNavigation.push(correctPodcastByline)
+  window.Glade.onNavigation.push(correctPodcastByline)
   correctPodcastByline()
 }
