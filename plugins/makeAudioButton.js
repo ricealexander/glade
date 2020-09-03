@@ -22,7 +22,9 @@ const makeAudioButton = config => {
     throw new Error('Could not create Audio Button because audio file is missing')
   }
 
-  return `
+  const button = document.createElement('div')
+
+  button.innerHTML = `
   <ps-stream
     ${program ? `data-stream-name="${program}"` : ''}
     ${episodeID ? `data-stream-id="${episodeID}"` : ''}
@@ -48,6 +50,8 @@ const makeAudioButton = config => {
       </span>
     </button>
   </ps-stream>`
+
+  return button
 }
 
 export default () => {
