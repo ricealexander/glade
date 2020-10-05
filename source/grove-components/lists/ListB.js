@@ -11,8 +11,8 @@ function listB (dataset = {}, listTitle = '') {
         >
           ${title || ''}
         </a>
-      </li>
-    `)
+      </li>`
+    )
     .join('')
 
   return `

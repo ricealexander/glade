@@ -13,9 +13,11 @@
 */
 
 import ListB from './lists/ListB'
+import ListC from './lists/ListC'
 
 const templates = {
-  b: ListB,
+  B: ListB,
+  C: ListC,
 }
 
 function List (listType, listTitle, dataset, options) {
