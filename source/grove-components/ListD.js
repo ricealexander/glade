@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/cognitive-complexity */
 function formatTimestamp (stamp) {
   const date = new Date(stamp)
 
@@ -21,7 +22,7 @@ function formatTimestamp (stamp) {
   </div>`
 }
 
-function listD (dataset, listTitle) {
+function ListD (dataset, listTitle) {
   const itemsMarkup = dataset
     .map(({title, link, image, description, audio, authors, timestamp}) => `
       <li class="ListD-items-item">
@@ -113,4 +114,4 @@ function listD (dataset, listTitle) {
   </div>`
 }
 
-export default listD
+export default ListD

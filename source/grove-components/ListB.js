@@ -1,4 +1,4 @@
-function listB (dataset = {}, listTitle = '') {
+function ListB (dataset = {}, listTitle = '') {
   const firstItem = dataset[0]
 
   const itemsMarkup = dataset
@@ -47,4 +47,4 @@ function listB (dataset = {}, listTitle = '') {
   </div>`
 }
 
-export default listB
+export default ListB
