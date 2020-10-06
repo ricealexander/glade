@@ -2,6 +2,7 @@
 import { default as addIsolatedEventListener } from './addIsolatedEventListener'
 import { default as loadScript               } from './loadScript'
 import { default as loadStylesheet           } from './loadStylesheet'
+import { default as pageMatches              } from './pageMatches'
 import { default as setIsolatedInterval      } from './setIsolatedInterval'
 
 // Components
@@ -14,8 +15,11 @@ import { default as StreamPill } from './components/StreamPill'
 const Glade = {
   loadScript,
   loadStylesheet,
+
   addIsolatedEventListener,
   setIsolatedInterval,
+
+  pageMatches,
 
   components: {
     ListB,
