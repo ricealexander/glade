@@ -27,6 +27,9 @@ The dataset argument should contain an array of objects. Each object can have th
 **`timestamp` _string \<Date\>_**
 <br>A `new Date()`-compatible timestamp
 
+**`display` _boolean_**
+<br>If set to `false`, do not display the item
+
 ### List Templates Example
 
 ```js

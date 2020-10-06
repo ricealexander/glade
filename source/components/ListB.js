@@ -2,7 +2,10 @@ function ListB (dataset = {}, listTitle = '') {
   const firstItem = dataset[0]
 
   const itemsMarkup = dataset
-    .map(({title, link}) => `
+    .map(({title, link, display}) => {
+      if (display === false) return ''
+
+      return `
       <li class="ListB-items-item">
         <a
           class="PromoLink"
@@ -12,7 +15,7 @@ function ListB (dataset = {}, listTitle = '') {
           ${title || ''}
         </a>
       </li>`
-    )
+    })
     .join('')
 
   return `

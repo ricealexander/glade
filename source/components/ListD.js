@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 /* eslint-disable sonarjs/cognitive-complexity */
+
 function formatTimestamp (stamp) {
   if (!stamp) return ''
 
@@ -26,7 +28,10 @@ function formatTimestamp (stamp) {
 
 function ListD (dataset, listTitle) {
   const itemsMarkup = dataset
-    .map(({title, link, image, description, audio, authors, timestamp}) => `
+    .map(({title, link, image, description, audio, authors, timestamp, display}) => {
+      if (display === false) return ''
+
+      return `
       <li class="ListD-items-item">
         <ps-promo class="PromoB" data-content-type="" data-image-align="top">
           <div class="PromoB-content" ${!image ? 'data-no-media=""' : ''}>
@@ -100,7 +105,7 @@ function ListD (dataset, listTitle) {
           </div>
         </ps-promo>
       </li>`
-    )
+    })
     .join('')
 
   return `

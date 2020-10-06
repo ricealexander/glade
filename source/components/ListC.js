@@ -25,7 +25,10 @@ function formatTimestamp (stamp) {
 
 function ListC (dataset = {}, listTitle = '') {
   const itemsMarkup = dataset
-    .map(({title, link, image, timestamp}) => `
+    .map(({title, link, image, timestamp, display}) => {
+      if (display === false) return ''
+
+      return `
       <li class="ListC-items-item">
         <ps-promo class="PromoXSmall" data-content-type="" ${!image ? 'data-no-media=""' : ''}>
           ${image
@@ -59,7 +62,7 @@ function ListC (dataset = {}, listTitle = '') {
           </div>
         </ps-promo>
       </li>`
-    )
+    })
     .join('')
 
   return `
