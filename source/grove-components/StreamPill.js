@@ -5,12 +5,12 @@
 //  episodeID: '00000174-2231-dd1b-a77f-3bf1a5c60000',
 //  episodeTitle: '‘Summer Of Violence’ Keeps Stray Rescue’s Donna Lochman Busy Saving Dogs',
 //  audioFormat: 'audio/mpeg',
-//  audioFile: 'https://kwmu-adswizz.streamguys1.com/wake_up_to_politics/20200124005720-1_IOWA_CAUCUSES.mp3',
+//  audio: 'https://kwmu-adswizz.streamguys1.com/wake_up_to_politics/20200124005720-1_IOWA_CAUCUSES.mp3',
 //  small: true,
 
-const makeAudioButton = config => {
+const StreamPill = config => {
   const {
-    audioFile,
+    audio,
     audioFormat,
     episodeID,
     episodeTitle,
@@ -18,7 +18,7 @@ const makeAudioButton = config => {
     small,
   } = config
 
-  if (!audioFile) {
+  if (!audio) {
     throw new Error('Could not create Audio Button because audio file is missing')
   }
 
@@ -35,7 +35,7 @@ const makeAudioButton = config => {
   >
     <ps-stream-url
       data-stream-format="${audioFormat || 'audio/mpeg'}"
-      data-stream-url="${audioFile}"
+      data-stream-url="${audio}"
     >
     </ps-stream-url>
 
@@ -54,6 +54,4 @@ const makeAudioButton = config => {
   return button
 }
 
-export default () => {
-  window.Glade.makeAudioButton = makeAudioButton
-}
+export default StreamPill
