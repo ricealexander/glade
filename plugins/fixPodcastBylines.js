@@ -16,14 +16,6 @@ const removeZFromDate = datestamp => {
   return datestamp
 }
 
-const getArticleMetaData = () => {
-  const articleDataTag = document.querySelector('meta[name="brightspot-dataLayer"]')
-  const dataExists = articleDataTag && articleDataTag.content
-
-  if (!dataExists) return null
-  return JSON.parse(articleDataTag.content)
-}
-
 // Arrow function in IIFE should result in a non-fatal error on IE
 function correctPodcastByline () {
   const headline = document.querySelector('.PodcastEpisodePage-headline, .RadioShowEpisodePage-headline')
@@ -32,7 +24,7 @@ function correctPodcastByline () {
   if (!isPodcastOrRadioShow) return
 
   // Get meta-data from the page
-  const metaData = getArticleMetaData()
+  const metaData = window.Glade.getMetadata()
   if (!metaData) return
 
   const authors = metaData.author.split(',')
@@ -64,6 +56,7 @@ function correctPodcastByline () {
   headline.insertAdjacentHTML('afterend', markup)
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   window.Glade.onNavigation.push(correctPodcastByline)
   correctPodcastByline()
