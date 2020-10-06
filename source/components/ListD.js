@@ -1,5 +1,7 @@
 /* eslint-disable sonarjs/cognitive-complexity */
 function formatTimestamp (stamp) {
+  if (!stamp) return ''
+
   const date = new Date(stamp)
 
   const dateStamp = date.toLocaleDateString('en-US',
@@ -27,7 +29,7 @@ function ListD (dataset, listTitle) {
     .map(({title, link, image, description, audio, authors, timestamp}) => `
       <li class="ListD-items-item">
         <ps-promo class="PromoB" data-content-type="" data-image-align="top">
-          <div class="PromoB-content" ${!image ?  'data-no-media=""' : ''}>
+          <div class="PromoB-content" ${!image ? 'data-no-media=""' : ''}>
             ${image
               ? `<div class="PromoB-media">
                    <a
@@ -45,28 +47,28 @@ function ListD (dataset, listTitle) {
                  </div>`
               : ''
             }
-          </div>
 
-          <div class="PromoB-title">
-            <a class="Link" ${link ? `href="${link}"` : ''}>
-              ${title || ''}
-            </a>
-          </div>
-
-          <div class="PromoB-byline">
-            <div class="PromoB-authorName">
-              ${(authors || []).join(', ')}
+            <div class="PromoB-title">
+              <a class="Link" ${link ? `href="${link}"` : ''}>
+                ${title || ''}
+              </a>
             </div>
-            ${authors ? '<span class="PromoB-byline-divider">,</span>' : ''}
-            <div class="PromoB-date">
-              ${formatTimestamp(timestamp)}
-            </div>
-          </div>
 
-          ${description
-            ? `<div class="PromoB-description">${description}</div>`
-            : ''
-          }
+            <div class="PromoB-byline">
+              <div class="PromoB-authorName">
+                ${(authors || []).join(', ')}
+              </div>
+              ${authors ? '<span class="PromoB-byline-divider">,</span>' : ''}
+              <div class="PromoB-date">
+                ${formatTimestamp(timestamp)}
+              </div>
+            </div>
+
+            ${description
+              ? `<div class="PromoB-description">${description}</div>`
+              : ''
+            }
+          </div>
 
           <div class="PromoB-audio-label">
           ${audio

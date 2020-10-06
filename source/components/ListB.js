@@ -17,10 +17,12 @@ function ListB (dataset = {}, listTitle = '') {
 
   return `
   <div class="ListB">
-    ${listTitle
-      ? `<div class="ListB-header">${listTitle}</div>`
-      : '<div class="ListB-header" data-no-title=""></div>'
-    }
+    <div class="ListB-header">
+      ${listTitle
+        ? `<div class="ListB-header-title">${listTitle}</div>`
+        : '<div class="ListB-header-title" data-no-title=""></div>'
+      }
+    </div>
 
     <div class="ListB-items-first">
       <ps-promo class="PromoB" data-content-type="">

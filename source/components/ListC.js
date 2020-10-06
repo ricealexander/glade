@@ -1,4 +1,6 @@
 function formatTimestamp (stamp) {
+  if (!stamp) return ''
+
   const date = new Date(stamp)
 
   const dateStamp = date.toLocaleDateString('en-US',
@@ -25,7 +27,7 @@ function ListC (dataset = {}, listTitle = '') {
   const itemsMarkup = dataset
     .map(({title, link, image, timestamp}) => `
       <li class="ListC-items-item">
-        <ps-promo class="PromoXSmall" data-content-type="" ${!image ?  'data-no-media=""' : ''}>
+        <ps-promo class="PromoXSmall" data-content-type="" ${!image ? 'data-no-media=""' : ''}>
           ${image
             ? `
             <div class="PromoXSmall-media">
