@@ -32,7 +32,10 @@ The dataset argument should contain an array of objects. Each object can have th
 
 ### List Templates Example
 
-```js
+```html
+<section id="doggos"></section>
+
+<script>
 const dataset = [
   {
     title: "The Floofmeister 3000",
@@ -59,8 +62,7 @@ const dataset = [
   }
 ]
 
-const markup = Glade.components.ListD(dataset, "Dog List")
-
-const parent = document.querySelector('.parent-element')
-parent.insertAdjacentHTML('beforeend', markup)
+const markup = Glade.components.ListD(dataset, "Doggo List")
+document.querySelector('#doggos').insertAdjacentHTML('beforeend', markup)
+</script>
 ```
