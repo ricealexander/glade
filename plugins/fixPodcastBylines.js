@@ -16,7 +16,6 @@ const removeZFromDate = datestamp => {
   return datestamp
 }
 
-// Arrow function in IIFE should result in a non-fatal error on IE
 function correctPodcastByline () {
   const headline = document.querySelector('.PodcastEpisodePage-headline, .RadioShowEpisodePage-headline')
 
@@ -31,8 +30,8 @@ function correctPodcastByline () {
   const station = metaData.station
   const publishedDate = new Date(removeZFromDate(metaData.publishedDate))
 
-  // Adjust for Daylight Saving Time
-  // This fix will hopefully be obsolete before November 1, 2020
+  // Adjust Timestamp for Grove
+  // All Grove times are 1 hour off, not related to Daylight Savings
   publishedDate.setHours(publishedDate.getHours() - 1)
 
   const markup = `
