@@ -55,8 +55,10 @@ function correctPodcastByline () {
   headline.insertAdjacentHTML('afterend', markup)
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
-  window.Glade.onNavigation.push(correctPodcastByline)
   correctPodcastByline()
+
+  window.addEventListener('grove-navigation', () => {
+    correctPodcastByline()
+  })
 }

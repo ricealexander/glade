@@ -1,18 +1,14 @@
-function addStyles (markup, options) {
+function addStyles (markup, options = {}) {
   // Create the styles and append them
   const styles = document.createElement('style')
   styles.prepend(markup)
   document.head.append(styles)
 
-  // Remove styles upon navigation
-  if (options?.temporary === true) {
-    let functionIndex = window.Glade.onNavigation.length
-
-    window.Glade.onNavigation.push(() => {
-      // remove styles and then remove this function
+  // Remove styles unless set to persist
+  if (!options.persist) {
+    window.addEventListener('grove-navigate', () => {
       styles.remove()
-      window.Glade.onNavigation.splice(functionIndex, 1)
-    })
+    }, { once: true })
   }
 }
 

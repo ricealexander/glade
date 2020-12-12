@@ -34,5 +34,9 @@ export default message => {
 
   if (isInternetExplorer) {
     displayAlert(message)
+
+    window.addEventListener('grove-navigation', () => {
+      displayAlert(message)
+    })
   }
 }

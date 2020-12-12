@@ -5,6 +5,9 @@ function identifyCurrentPage () {
 }
 
 export default () => {
-  window.Glade.onNavigation.push(identifyCurrentPage)
   identifyCurrentPage()
+
+  window.addEventListener('grove-navigation', () => {
+    identifyCurrentPage()
+  })
 }
