@@ -26,8 +26,8 @@ function correctPodcastByline () {
   const metaData = window.Glade.getMetadata()
   if (!metaData) return
 
-  const authors = metaData.author.split(',')
-  const station = metaData.station
+  const { authors, station } = metaData
+
   const publishedDate = new Date(removeZFromDate(metaData.publishedDate))
 
   // Adjust Timestamp for Grove
