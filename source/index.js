@@ -34,17 +34,23 @@ const Glade = {
 }
 
 // Hook into Grove Navigation
-Glade.onNavigation = []
 Glade.currentPage = window.location.pathname
 
 setInterval(() => {
   const currentPage = window.location.pathname
-  const hasChangedPages = (currentPage !== Glade.currentPage)
+  const previousPage = Glade.currentPage
 
-  // If navigation occurred, run all functions in Glade.onNavigation
-  if (hasChangedPages) {
+  if (currentPage !== previousPage) {
+    // dispatch Grove Navigate Event
+    const navigateEvent = new CustomEvent('grove-navigate', {
+      detail: {
+        page: currentPage,
+        previousPage: previousPage,
+      },
+    })
+
+    window.dispatchEvent(navigateEvent)
     Glade.currentPage = currentPage
-    for (const callback of Glade.onNavigation) callback()
   }
 }, 100)
 
