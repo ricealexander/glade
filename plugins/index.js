@@ -1,3 +1,4 @@
+import { default as addUMSLAttribution  } from './addUMSLAttribution'
 import { default as identifyCurrentPage } from './identifyCurrentPage'
 import { default as IEBannerMessage     } from './IEBannerMessage'
 import { default as fixPodcastBylines   } from './fixPodcastBylines'
@@ -9,6 +10,7 @@ import { default as STLPRAlias          } from './STLPRAlias'
 // args [optional]: arguments to pass into plugin
 
 const plugins = [
+  { fn: addUMSLAttribution,  enabled: true },
   { fn: identifyCurrentPage, enabled: true },
   { fn: fixPodcastBylines,   enabled: true },
   { fn: STLPRAlias,          enabled: true },
