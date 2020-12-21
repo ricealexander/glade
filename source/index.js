@@ -1,9 +1,9 @@
 // Utilities
 import { default as addIsolatedEventListener } from './addIsolatedEventListener'
-import { default as addStyles                } from './addStyles'
+import { default as insertCSS                } from './insertCSS'
 import { default as getMetadata              } from './getMetadata'
-import { default as loadScript               } from './loadScript'
-import { default as loadStylesheet           } from './loadStylesheet'
+import { default as insertScript             } from './insertScript'
+import { default as insertStylesheet         } from './insertStylesheet'
 import { default as pageMatches              } from './pageMatches'
 import { default as setIsolatedInterval      } from './setIsolatedInterval'
 
@@ -15,9 +15,9 @@ import { default as StreamPill } from './components/StreamPill'
 
 // Configure Glade object with helper functions
 const Glade = {
-  addStyles,
-  loadScript,
-  loadStylesheet,
+  insertCSS,
+  insertScript,
+  insertStylesheet,
 
   addIsolatedEventListener,
   setIsolatedInterval,
