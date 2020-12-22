@@ -1,7 +1,7 @@
 // Utilities
 import { default as addIsolatedEventListener } from './addIsolatedEventListener'
-import { default as insertCSS                } from './insertCSS'
 import { default as getMetadata              } from './getMetadata'
+import { default as insertCSS                } from './insertCSS'
 import { default as insertScript             } from './insertScript'
 import { default as insertStylesheet         } from './insertStylesheet'
 import { default as pageMatches              } from './pageMatches'
