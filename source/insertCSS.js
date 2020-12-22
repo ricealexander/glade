@@ -6,9 +6,9 @@
 function insertCSS (markup, shouldPersist = false) {
   // Create the styles and append them
   const styles = document.createElement('style')
-  styles.insertAdjacentElement('afterbegin', markup)
+  styles.textContent = markup
 
-  document.head.insertAdjecentElement('beforeend', styles)
+  document.head.insertAdjacentElement('beforeend', styles)
 
   // Remove styles unless set to persist
   if (!shouldPersist) {
