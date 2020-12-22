@@ -45,7 +45,7 @@ function insertScript (attributes = {}, shouldPersist = false) {
   // Remove script if set not to persist
   // WARNING! removing the script does not cancel intervals/eventListeners
   if (!shouldPersist) {
-    window.addEventListener('grove-navigation', () => {
+    window.addEventListener('grove-navigate', () => {
       newScript.remove()
     }, { once: true })
   }

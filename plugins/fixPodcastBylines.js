@@ -58,7 +58,7 @@ function correctPodcastByline () {
 export default () => {
   correctPodcastByline()
 
-  window.addEventListener('grove-navigation', () => {
+  window.addEventListener('grove-navigate', () => {
     correctPodcastByline()
   })
 }

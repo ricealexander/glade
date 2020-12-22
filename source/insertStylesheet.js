@@ -40,7 +40,7 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
 
   // Remove script if set not to persist
   if (!shouldPersist) {
-    window.addEventListener('grove-navigation', () => {
+    window.addEventListener('grove-navigate', () => {
       sheet.remove()
     }, { once: true })
   }

@@ -36,7 +36,7 @@ export default () => {
     updateLogos()
     Glade.insertStylesheet({ href: 'https://www.stlpublicradio.org/external/grove/stylesheets/brand-update.css' }, true)
 
-    window.addEventListener('grove-navigation', () => {
+    window.addEventListener('grove-navigate', () => {
       updateLogos()
     })
   }

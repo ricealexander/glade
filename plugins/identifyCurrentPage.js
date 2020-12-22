@@ -7,7 +7,7 @@ function identifyCurrentPage () {
 export default () => {
   identifyCurrentPage()
 
-  window.addEventListener('grove-navigation', () => {
+  window.addEventListener('grove-navigate', () => {
     identifyCurrentPage()
   })
 }
