@@ -23,7 +23,7 @@ const attributionCSS = `
 `
 
 function addUMSLAttribution () {
-  window.Glade.insertCSS(attributionCSS)
+  Glade.insertCSS(attributionCSS)
 
   const menuContainer = document.querySelector('.Page-header-hamburger-menu-wrapper')
   menuContainer.insertAdjacentHTML('beforeend', attributionHTML)

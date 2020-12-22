@@ -1,6 +1,6 @@
 function identifyCurrentPage () {
   if (document.body) {
-    document.body.dataset.page = window.Glade.currentPage
+    document.body.dataset.page = Glade.currentPage
   }
 }
 

@@ -6,6 +6,10 @@ module.exports = {
     es6: true,
   },
 
+  globals: {
+    Glade: 'writable',
+  },
+
   'extends': 'webtrinkets',
 
   rules: {

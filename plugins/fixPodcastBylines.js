@@ -23,7 +23,7 @@ function correctPodcastByline () {
   if (!isPodcastOrRadioShow) return
 
   // Get meta-data from the page
-  const metaData = window.Glade.getMetadata()
+  const metaData = Glade.getMetadata()
   if (!metaData) return
 
   const { authors, station } = metaData
