@@ -25,12 +25,6 @@ function findTranscripts () {
 function formatTranscripts () {
   let transcriptModules = findTranscripts()
 
-  if (!transcriptModules) {
-    // This message should never be seen.
-    // transcriptModules should ALWAYS be an array
-    throw new Error('Failed to locate any transcripts.')
-  }
-
   for (let module of transcriptModules) {
     let subhead = module.querySelector('h2')
 
