@@ -134,12 +134,8 @@ const logosCSS = `
 
 
 export default () => {
-  const headerContainer = document.querySelector(
-    '.PH-top-bar .PH-logo > a[aria-label="home page"]'
-  )
-  const menuContainer = document.querySelector(
-    '.PH-ham-m .PH-logo > a[aria-label="home page"]'
-  )
+  const headerContainer = document.querySelector('.PH-top-bar .PH-logo > a[aria-label="home page"]')
+  const menuContainer   = document.querySelector('.PH-ham-m .PH-logo > a[aria-label="home page"]')
 
   if (!headerContainer || !menuContainer) {
     throw new Error('Could not find logo containers.')
@@ -147,7 +143,7 @@ export default () => {
 
   Glade.insertCSS(logosCSS, true) // true: CSS should persist on navigation
 
+  menuContainer.innerHTML   = stlprLogo
   headerContainer.innerHTML = stlprLogo
   headerContainer.insertAdjacentHTML('afterend', nprLogo)
-  menuContainer.innerHTML = stlprLogo
 }
