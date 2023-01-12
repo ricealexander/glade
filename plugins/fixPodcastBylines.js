@@ -1,11 +1,15 @@
-const formatDate = date => date
+/* eslint-disable max-len */
+
+import onNavigate from '../lib/onNavigate'
+
+const _formatDate = date => date
   .toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   })
 
-const formatTime = date => date
+const _formatTime = date => date
   .toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
@@ -17,7 +21,7 @@ const removeZFromDate = datestamp => {
 }
 
 function correctPodcastByline () {
-  const headline = document.querySelector('.PodcastEpisodePage-headline, .RadioShowEpisodePage-headline')
+  const headline = document.querySelector('.PCEP-headline, .RSEP-headline')
 
   const isPodcastOrRadioShow = !!headline
   if (!isPodcastOrRadioShow) return
@@ -36,7 +40,7 @@ function correctPodcastByline () {
 
   const markup = `
     <div class="ArticlePage-contentInfo">
-      <div class="ArticlePage-byline">
+      <div class="ArticlePage-byline" style="margin-bottom: 0">
         <div class="ArticlePage-authors">
           <div class="ArticlePage-authorName">
             ${station}
@@ -44,21 +48,20 @@ function correctPodcastByline () {
             ${authors.map(author => `<span class="ArticlePage-authorBy">${author}</span>`).join(', ')}
           </div>
         </div>
-        <div class="ArticlePage-timestamp">
-          <div class="ArticlePage-datePublished">
-            Published ${formatDate(publishedDate)} at ${formatTime(publishedDate)} CDT
-          </div>
-        </div>
       </div>
     </div>`
+
+
+  // <div class="ArticlePage-timestamp">
+  //   <div class="ArticlePage-datePublished">
+  //     Published ${formatDate(publishedDate)} at ${formatTime(publishedDate)} CDT
+  //   </div>
+  // </div>
 
   headline.insertAdjacentHTML('afterend', markup)
 }
 
 export default () => {
   correctPodcastByline()
-
-  window.addEventListener('grove-navigate', () => {
-    correctPodcastByline()
-  })
+  onNavigate(() => correctPodcastByline())
 }
