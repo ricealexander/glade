@@ -11,8 +11,16 @@ module.exports = grunt => {
         },
       },
     },
+    uglify: {
+      build: {
+        src: 'dist/glade.js',
+        dest: 'dist/glade.js',
+      },
+    },
   })
 
   grunt.loadNpmTasks('grunt-browserify')
-  grunt.registerTask('build', ['browserify'])
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+
+  grunt.registerTask('build', ['browserify', 'uglify'])
 }
