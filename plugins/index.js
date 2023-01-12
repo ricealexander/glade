@@ -2,7 +2,7 @@ import { default as addUMSLAttribution  } from './addUMSLAttribution'
 import { default as identifyCurrentPage } from './identifyCurrentPage'
 import { default as IEBannerMessage     } from './IEBannerMessage'
 import { default as fixPodcastBylines   } from './fixPodcastBylines'
-import { default as rebrandingFlag      } from './rebrandingFlag'
+import { default as animateLogos        } from './animateLogos'
 
 // Plugin
 // fn:      plugin function
@@ -11,9 +11,9 @@ import { default as rebrandingFlag      } from './rebrandingFlag'
 
 const plugins = [
   { fn: addUMSLAttribution,  enabled: true },
+  { fn: animateLogos,        enabled: true },
   { fn: identifyCurrentPage, enabled: true },
   { fn: fixPodcastBylines,   enabled: true },
-  { fn: rebrandingFlag,      enabled: true },
 
   {
     fn: IEBannerMessage,
