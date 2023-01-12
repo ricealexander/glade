@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/prefer-modern-dom-apis */
+import onNavigate from '../lib/onNavigate'
 
 // insertScript (attributes [, shouldPersist])
 // load a given script if not already present on the page
@@ -22,7 +22,7 @@ function addAttributes (element, attributes = {}) {
 }
 
 function insertScript (attributes = {}, shouldPersist = false) {
-  // Find all external scripts in the page
+  // Find all external scripts on the page
   const scripts = [...document.querySelectorAll('script')]
   const externalScripts = scripts.filter(script => script.src)
 
@@ -40,15 +40,16 @@ function insertScript (attributes = {}, shouldPersist = false) {
   addAttributes(newScript, attributes)
 
   const lastScript = scripts[scripts.length - 1]
-  lastScript.insertAdjacentElement('afterend', newScript)
+  lastScript.after(newScript)
 
   // Remove script if set not to persist
   // WARNING! removing the script does not cancel intervals/eventListeners
   if (!shouldPersist) {
-    window.addEventListener('grove-navigate', () => {
-      newScript.remove()
-    }, { once: true })
+    onNavigate(() => newScript.remove(), { once: true })
   }
+
+  // Pass an HTML Reference to the script
+  return newScript
 }
 
 export default insertScript

@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/prefer-modern-dom-apis */
+import onNavigate from '../lib/onNavigate'
 
 // insertCSS (markup [, shouldPersist])
 // inserts a style tag with raw CSS
@@ -12,10 +12,11 @@ function insertCSS (markup, shouldPersist = false) {
 
   // Remove styles unless set to persist
   if (!shouldPersist) {
-    window.addEventListener('grove-navigate', () => {
-      styles.remove()
-    }, { once: true })
+    onNavigate(() => styles.remove(), { once: true })
   }
+
+  // Pass an HTML Reference to the loaded CSS
+  return styles
 }
 
 export default insertCSS

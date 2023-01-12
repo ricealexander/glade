@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/prefer-modern-dom-apis */
+import onNavigate from '../lib/onNavigate'
 
 // insertStylesheet (attributes [, shouldPersist])
 // load a given stylesheet if not already present on the page
@@ -21,13 +21,12 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
   var links = [...document.querySelectorAll('link')]
   var stylesheets = links.filter(link => link.rel === 'stylesheet')
 
-  // Fail loudly if script was not provided
   if (!attributes.href) {
     throw new Error('Stylesheet href is required. Use syntax Glade.insertStylesheet({href: "PATH"})')
   }
-  // Fail silently if script is already present
+
   if (stylesheets.includes(attributes.href)) {
-    return
+    throw new Error('Refused to Load Stylesheet: already present in the page source')
   }
 
   // Create a new stylesheet and inject it into the DOM
@@ -36,14 +35,15 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
   sheet.rel = 'stylesheet'
 
   var lastLink = links[links.length - 1]
-  lastLink.insertAdjacentElement('afterend', sheet)
+  lastLink.after(sheet)
 
   // Remove script if set not to persist
   if (!shouldPersist) {
-    window.addEventListener('grove-navigate', () => {
-      sheet.remove()
-    }, { once: true })
+    onNavigate(() => sheet.remove(), { once: true })
   }
+
+  // Pass an HTML Reference to the stylesheet
+  return sheet
 }
 
 export default insertStylesheet
