@@ -3,6 +3,7 @@ import { default as addUMSLAttribution  } from './addUMSLAttribution'
 import { default as identifyCurrentPage } from './identifyCurrentPage'
 import { default as IEBannerMessage     } from './IEBannerMessage'
 import { default as fixPodcastBylines   } from './fixPodcastBylines'
+import { default as formatTranscripts   } from './formatTranscripts'
 import { default as animateLogos        } from './animateLogos'
 
 // Plugin
@@ -21,6 +22,7 @@ const plugins = [
     args: ['Not all features may be supported in Internet Explorer'],
   },
   { fn: fixPodcastBylines,   enabled: true },
+  { fn: formatTranscripts,   enabled: true },
 ]
 
 export default plugins
