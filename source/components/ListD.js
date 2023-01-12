@@ -26,6 +26,7 @@ function formatTimestamp (stamp) {
   </div>`
 }
 
+
 function ListD (dataset, listTitle) {
   const itemsMarkup = dataset
     .map(({title, link, image, description, audio, authors, timestamp, display}) => {
@@ -120,5 +121,6 @@ function ListD (dataset, listTitle) {
     <ul class="ListD-items">${itemsMarkup}</ul>
   </div>`
 }
+
 
 export default ListD

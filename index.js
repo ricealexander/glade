@@ -1,7 +1,9 @@
 import { default as Glade } from './source'
 import { default as plugins } from './plugins'
 
+
 window.Glade = Glade
+
 
 // Run Plugins
 document.addEventListener('DOMContentLoaded', () => {

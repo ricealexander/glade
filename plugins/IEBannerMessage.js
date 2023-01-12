@@ -1,5 +1,6 @@
 import onNavigate from '../lib/onNavigate'
 
+
 function displayAlert (message) {
   if (!message) return
 
@@ -29,6 +30,7 @@ function displayAlert (message) {
     header.insertAdjacentHTML('afterend', markup)
   }
 }
+
 
 export default message => {
   const userAgent = window.navigator.userAgent || ''

@@ -1,12 +1,13 @@
 import onNavigate from '../lib/onNavigate'
 
+
 // We'll need to detect whether a transcript is present.
 // Look for a RichText Module with a Subhead containing the word "Transcript"
 
 function findTranscripts () {
   let transcripts = []
-
   let richTextModules = document.querySelectorAll('.RichTextModule')
+
   for (let module of richTextModules) {
     let subhead = module.querySelector('h2')
     if (!subhead) continue
@@ -19,6 +20,7 @@ function findTranscripts () {
 
   return transcripts
 }
+
 
 function formatTranscript (module) {
   let subhead = module.querySelector('h2')
@@ -42,6 +44,7 @@ function formatTranscript (module) {
   module.insertAdjacentHTML('afterend', transcriptMarkup)
   module.remove()
 }
+
 
 function formatTranscripts () {
   let transcriptModules = findTranscripts()

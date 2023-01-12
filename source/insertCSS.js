@@ -1,5 +1,6 @@
 import onNavigate from '../lib/onNavigate'
 
+
 // insertCSS (markup [, shouldPersist])
 // inserts a style tag with raw CSS
 
@@ -18,5 +19,6 @@ function insertCSS (markup, shouldPersist = false) {
   // Pass an HTML Reference to the loaded CSS
   return styles
 }
+
 
 export default insertCSS

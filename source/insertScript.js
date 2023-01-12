@@ -1,5 +1,6 @@
 import onNavigate from '../lib/onNavigate'
 
+
 // insertScript (attributes [, shouldPersist])
 // load a given script if not already present on the page
 
@@ -20,6 +21,7 @@ function addAttributes (element, attributes = {}) {
     }
   }
 }
+
 
 function insertScript (attributes = {}, shouldPersist = false) {
   // Find all external scripts on the page
@@ -51,5 +53,6 @@ function insertScript (attributes = {}, shouldPersist = false) {
   // Pass an HTML Reference to the script
   return newScript
 }
+
 
 export default insertScript

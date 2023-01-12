@@ -18,4 +18,5 @@ function addIsolatedEventListener (element, type, callback) {
   element.addEventListener(type, isolatedCallback)
 }
 
+
 export default addIsolatedEventListener

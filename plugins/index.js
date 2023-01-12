@@ -7,6 +7,7 @@ import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
 import { default as makePlaceholder     } from './makePlaceholder'
 
+
 // Plugin
 // fn:      plugin function
 // enabled: whether or not plugin should run
@@ -23,9 +24,11 @@ const plugins = [
   { fn: addThemeByTag,       enabled: true,
     args: [],
   },
+
   { fn: IEBannerMessage,     enabled: false,
     args: ['Not all features may be supported in Internet Explorer'],
   },
 ]
+
 
 export default plugins

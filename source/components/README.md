@@ -2,6 +2,7 @@
 
 Grove displays content in Lists. These Lists share a common data structure, so these templates are created to render Grove's markup from custom data.
 
+
 ### Formatting the Data
 
 The dataset argument should contain an array of objects. Each object can have the following properties. Each property is optional.
@@ -29,6 +30,7 @@ The dataset argument should contain an array of objects. Each object can have th
 
 **`display` _boolean_**
 <br>If set to `false`, do not display the item
+
 
 ### List Templates Example
 
@@ -61,6 +63,7 @@ const dataset = [
     authors: [],
   }
 ]
+
 
 const markup = Glade.components.ListD(dataset, "Doggo List")
 document.querySelector('#doggos').insertAdjacentHTML('beforeend', markup)

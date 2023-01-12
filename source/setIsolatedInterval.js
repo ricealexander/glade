@@ -21,4 +21,5 @@ function setIsolatedInterval (callback, milliseconds) {
   return interval
 }
 
+
 export default setIsolatedInterval

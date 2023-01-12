@@ -23,6 +23,7 @@ function formatTimestamp (stamp) {
   </div>`
 }
 
+
 function ListC (dataset = {}, listTitle = '') {
   const itemsMarkup = dataset
     .map(({title, link, image, timestamp, display}) => {
@@ -77,5 +78,6 @@ function ListC (dataset = {}, listTitle = '') {
     <ul class="ListC-items">${itemsMarkup}</ul>
   </div>`
 }
+
 
 export default ListC

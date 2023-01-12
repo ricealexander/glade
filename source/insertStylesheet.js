@@ -1,5 +1,6 @@
 import onNavigate from '../lib/onNavigate'
 
+
 // insertStylesheet (attributes [, shouldPersist])
 // load a given stylesheet if not already present on the page
 
@@ -15,6 +16,7 @@ function addAttributes (element, attributes = {}) {
     }
   }
 }
+
 
 function insertStylesheet (attributes = {}, shouldPersist = false) {
   // Find all stylesheets in the page
@@ -45,5 +47,6 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
   // Pass an HTML Reference to the stylesheet
   return sheet
 }
+
 
 export default insertStylesheet

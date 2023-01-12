@@ -54,6 +54,7 @@ function splitString (string) {
   return string.split(/,\s?/)
 }
 
+
 function getMetadata () {
   const metadata = {
     authors: [],
@@ -91,5 +92,6 @@ function getMetadata () {
 
   return metadata
 }
+
 
 export default getMetadata

@@ -7,11 +7,13 @@ import { default as insertStylesheet         } from './insertStylesheet'
 import { default as pageMatches              } from './pageMatches'
 import { default as setIsolatedInterval      } from './setIsolatedInterval'
 
+
 // Components
 import { default as ListB      } from './components/ListB'
 import { default as ListC      } from './components/ListC'
 import { default as ListD      } from './components/ListD'
 import { default as StreamPill } from './components/StreamPill'
+
 
 // Configure Glade object with helper functions
 const Glade = {
@@ -33,8 +35,10 @@ const Glade = {
   },
 }
 
+
 // Hook into Grove Navigation
 Glade.currentPage = window.location.pathname
+
 
 setInterval(() => {
   const currentPage = window.location.pathname
@@ -53,5 +57,6 @@ setInterval(() => {
     Glade.currentPage = currentPage
   }
 }, 100)
+
 
 export default Glade

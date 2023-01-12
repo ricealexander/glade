@@ -4,6 +4,7 @@
 
 const aspectRatioPattern = /^(\d+):(\d+)$/
 
+
 function round (number, places = 0) {
   return Math.round(number * (10 ** places)) / (10 ** places)
 }
@@ -51,7 +52,9 @@ const styles = `
 }
 `
 
+
 let placeholderStyles
+
 
 function makePlaceholder (aspectRatio = '4:3', text = `Placeholder ${aspectRatio}`) {
   if (typeof aspectRatio !== 'string') {
@@ -77,6 +80,7 @@ function makePlaceholder (aspectRatio = '4:3', text = `Placeholder ${aspectRatio
 
   return placeholder
 }
+
 
 export default () => {
   Glade.makePlaceholder = makePlaceholder

@@ -19,9 +19,11 @@ function matchesCriteria (page, criteria) {
   throw new Error(`Criteria must be a String, Regular Expression, or Function. Instead got ${typeof criteria}, ${criteria}`)
 }
 
+
 function pageMatches (...criterias) {
   const currentPage = window.location.pathname
   return criterias.some(criteria => matchesCriteria(currentPage, criteria))
 }
+
 
 export default pageMatches
