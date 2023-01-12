@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable sonarjs/cognitive-complexity */
 
 function formatTimestamp (stamp) {
   if (!stamp) return ''
