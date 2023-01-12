@@ -39,3 +39,29 @@ Each of these scripts has an option whether or not it should persist when the us
 ## Glade Plugins
 
 Glade has a plugin system for running custom code. These can run any function of Glade as well as any function in `lib`.
+
+
+
+### Repository Structure
+```
+glade/
+├── .vscode/
+│   ├── extensions.json          · recommended VSCode Extensions
+│   └── settings.json            · project-specific VSCode Settings
+│
+├── dist/glade.js                · minified library
+│
+├── lib/                         · helper functions for project (private)
+├── plugins/                     · plugin system
+├── source/
+├── index.js                     · entry point for library
+│
+├── .browserslistrc              · browser support settings for plugins
+├── .editorconfig                · editor-agnostic settings
+├── .eslintrc.js                 · JavaScript Linting (ESLint)
+├── .gitignore                   · file patterns to exclude from repository
+├── gruntfile.js                 · entry point for build process
+├── package-lock.json
+├── package.json
+└── README.md                    · project description - YOU ARE HERE
+```
