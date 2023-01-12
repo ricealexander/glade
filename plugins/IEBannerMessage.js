@@ -1,3 +1,5 @@
+import onNavigate from '../lib/onNavigate'
+
 function displayAlert (message) {
   if (!message) return
 
@@ -34,9 +36,6 @@ export default message => {
 
   if (isInternetExplorer) {
     displayAlert(message)
-
-    window.addEventListener('grove-navigate', () => {
-      displayAlert(message)
-    })
+    onNavigate(() => displayAlert(message))
   }
 }
