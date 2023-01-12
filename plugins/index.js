@@ -5,6 +5,7 @@ import { default as IEBannerMessage     } from './IEBannerMessage'
 import { default as fixPodcastBylines   } from './fixPodcastBylines'
 import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
+import { default as longformBylineWorkaround  } from './longformBylineWorkaround'
 import { default as animateLogos        } from './animateLogos'
 
 // Plugin
@@ -25,6 +26,7 @@ const plugins = [
   { fn: fixPodcastBylines,   enabled: true },
   { fn: formatTranscripts,   enabled: true },
   { fn: googleCustomSearch,  enabled: true },
+  { fn: longformBylineWorkaround,  enabled: true },
 ]
 
 export default plugins
