@@ -6,6 +6,7 @@ import { default as fixPodcastBylines   } from './fixPodcastBylines'
 import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
 import { default as longformBylineWorkaround  } from './longformBylineWorkaround'
+import { default as makePlaceholder     } from './makePlaceholder'
 import { default as animateLogos        } from './animateLogos'
 
 // Plugin
@@ -27,6 +28,7 @@ const plugins = [
   { fn: formatTranscripts,   enabled: true },
   { fn: googleCustomSearch,  enabled: true },
   { fn: longformBylineWorkaround,  enabled: true },
+  { fn: makePlaceholder,     enabled: true },
 ]
 
 export default plugins
