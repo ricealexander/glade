@@ -17,7 +17,7 @@ const plugins = [
 
   {
     fn: IEBannerMessage,
-    enabled: true,
+    enabled: false,
     args: ['Not all features may be supported in Internet Explorer'],
   },
 ]
