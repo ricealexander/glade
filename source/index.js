@@ -15,18 +15,21 @@ import { default as ListD      } from './components/ListD'
 import { default as StreamPill } from './components/StreamPill'
 
 
-// Configure Glade object with helper functions
 const Glade = {
+  // Dynamically insert scripts and styles
   insertCSS,
   insertScript,
   insertStylesheet,
 
+  // Make non-safe JavaScript features safe
   addIsolatedEventListener,
   setIsolatedInterval,
 
+  // Other helper functions
   getMetadata,
   pageMatches,
 
+  // Recreate Grove componenets with custom data
   components: {
     ListB,
     ListC,
@@ -44,8 +47,8 @@ setInterval(() => {
   const currentPage = window.location.pathname
   const previousPage = Glade.currentPage
 
+  // dispatch Grove Navigate Event
   if (currentPage !== previousPage) {
-    // dispatch Grove Navigate Event
     const navigateEvent = new CustomEvent('grove-navigate', {
       detail: {
         page: currentPage,
