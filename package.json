@@ -1,7 +1,7 @@
 {
   "name": "glade",
-  "version": "1.0.0",
-  "description": "A Utility Library for Custom JavaScript Solutions in the Grove CMS",
+  "version": "2.0.0",
+  "description": "A utility library for creating custom JavaScript solutions in the Grove CMS",
   "author": {
     "name": "STLPR Digital",
     "email": "dev@stlpr.org",
