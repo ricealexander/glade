@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pluginFunction = plugin.fn
     const args           = plugin.args || []
 
-    if (isEnabled) pluginFunction(...args)
+    try {
+      if (isEnabled) pluginFunction(...args)
+    }
+    catch (error) {
+      console.error(error)
+    }
   }
 })
