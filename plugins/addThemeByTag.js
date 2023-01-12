@@ -16,13 +16,11 @@ const themeCSS = `
 
 function applyTheme () {
   if (!brightspotDataLayer) {
-    console.error('Could not read Data Layer')
-    return
+    throw new ReferenceError('Could not read Brightspot Data Layer.')
   }
 
   if (!brightspotDataLayer.keywords || !brightspotDataLayer.keywords.trim()) {
-    console.error(`Could not read Tags from Data Layer, "${brightspotDataLayer.keywords}"`)
-    return
+    throw new ReferenceError (`Could not read Tags from Data Layer, "${brightspotDataLayer.keywords}".`)
   }
 
   const tags = brightspotDataLayer.keywords.trim().split(',')

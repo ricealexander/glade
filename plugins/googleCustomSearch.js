@@ -3,8 +3,7 @@ export default () => {
   const searchForms = document.querySelectorAll('form.PH-search-form')
 
   if (searchForms.length === 0) {
-    console.error('Glade: could not locate Search Form')
-    return
+    throw new Error('Could not locate site search forms')
   }
 
   if (!prefersGroveSearch) {

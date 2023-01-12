@@ -113,8 +113,7 @@ function addUMSLFooterAttribution () {
   const footerNavigation = document.querySelector('footer nav.FooterNavigation, footer nav.SectionNavigation')
 
   if (!footerNavigation) {
-    console.error('Could not find footer navigation to add UMSL Attribution.')
-    return
+    throw new Error('Could not find footer navigation for UMSL Attribution.')
   }
 
   footerNavigation.insertAdjacentHTML('beforeend', footerAttributionHTML)
@@ -128,9 +127,9 @@ export default () => {
   const menuContainer = document.querySelector('.PH-ham-m-wrapper')
 
   if (!menuContainer) {
-    console.error('Could not find menu container to add UMSL Attribution.')
-    return
+    throw new Error('Could not find menu container for UMSL Attribution.')
   }
+
   menuContainer.insertAdjacentHTML('beforeend', menuAttributionHTML)
 
   // Add the footer attirubtion

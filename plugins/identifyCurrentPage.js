@@ -2,9 +2,11 @@ import onNavigate from '../lib/onNavigate'
 
 
 function identifyCurrentPage () {
-  if (document.body) {
-    document.body.dataset.page = window.location.pathname
+  if (!document.body) {
+    throw new ReferenceError('Could not locate document.body')
   }
+
+  document.body.dataset.page = window.location.pathname
 }
 
 

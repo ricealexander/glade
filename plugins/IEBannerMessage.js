@@ -12,6 +12,7 @@ function displayAlert (message) {
   // Find a place to put the alert
   // Attempt to insert it above an existing alert
   const existingAlert = document.querySelector('.AlertBar')
+
   if (existingAlert) {
     existingAlert.insertAdjacentHTML('beforebegin', markup)
     return
@@ -19,6 +20,7 @@ function displayAlert (message) {
 
   // Attempt to insert it after .Page-above
   const pageAboveBlock = document.querySelector('.Page-above')
+
   if (pageAboveBlock) {
     pageAboveBlock.insertAdjacentHTML('afterend', markup)
     return
@@ -26,9 +28,12 @@ function displayAlert (message) {
 
   // Attempt to insert it after header
   const header = document.querySelector('ps-header')
+
   if (header) {
     header.insertAdjacentHTML('afterend', markup)
   }
+
+  throw new Error('No locations to place an alert bar were found.')
 }
 
 

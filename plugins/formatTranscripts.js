@@ -52,8 +52,7 @@ function formatTranscripts () {
   if (!transcriptModules) {
     // This message should never be seen.
     // transcriptModules should ALWAYS be an array
-    console.error('Failed to look for transcripts.')
-    return
+    throw new Error('Failed to locate any transcripts.')
   }
 
   for (let module of transcriptModules) {

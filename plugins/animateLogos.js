@@ -142,8 +142,7 @@ export default () => {
   )
 
   if (!headerContainer || !menuContainer) {
-    console.error('Could not find logo containers')
-    return
+    throw new Error('Could not find logo containers.')
   }
 
   Glade.insertCSS(logosCSS, true) // true: CSS should persist on navigation
