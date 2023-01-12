@@ -6,7 +6,6 @@
   "eslint.alwaysShowStatus": true,
 
   "search.exclude": {
-    "**/.cache/": true,
     "**/.git/": true,
     "**/dist/": true,
     "**/node_modules/": true
