@@ -136,15 +136,25 @@ const logosCSS = `
 
 
 function replaceLogos () {
-  const headerContainer = document.querySelector('.PH-top-bar .PH-logo > a[aria-label="home page"]')
-  const menuContainer   = document.querySelector('.PH-ham-m .PH-logo > a[aria-label="home page"]')
+  // Replace logo in the header
+  const headerContainer = document.querySelector('.PH-top-bar .PH-logo a[aria-label="home page"]')
 
-  if (!headerContainer || !menuContainer) {
-    throw new Error('Could not find logo containers.')
+  if (headerContainer) {
+    headerContainer.innerHTML = stlprLogo + nprLogo
+  }
+  else {
+    console.error('Could not find logo container ".PH-top-bar .PH-logo a[aria-label="home page"]".')
   }
 
-  headerContainer.innerHTML = stlprLogo + nprLogo
-  menuContainer.innerHTML = stlprLogo
+  // Replace logo in the collapsible navigation
+  const menuContainer   = document.querySelector('.PH-ham-m .PH-logo a[aria-label="home page"]')
+
+  if (menuContainer) {
+    menuContainer.innerHTML = stlprLogo
+  }
+  else {
+    console.log('Could not find logo container ".PH-ham-m .PH-logo a[aria-label="home page"]".')
+  }
 }
 
 
