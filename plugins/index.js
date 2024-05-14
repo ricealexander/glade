@@ -1,4 +1,4 @@
-import { default as addThemeByTag       } from './addThemeByTag'
+import { default as applyThemeByTag     } from './applyThemeByTag'
 import { default as addUMSLAttribution  } from './addUMSLAttribution'
 import { default as animateLogos        } from './animateLogos'
 import { default as identifyCurrentPage } from './identifyCurrentPage'
@@ -35,7 +35,7 @@ const plugins = [
   { fn: googleCustomSearch,  enabled: true },
   { fn: makePlaceholder,     enabled: true },
 
-  { fn: addThemeByTag,       enabled: true,
+  { fn: applyThemeByTag,       enabled: true,
     args: [['LGBT', 'LGBTQ'], LGBTTheme],
   },
 
