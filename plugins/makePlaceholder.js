@@ -53,35 +53,23 @@ const styles = `
 `
 
 
-let placeholderStyles
-
-
 function makePlaceholder (aspectRatio = '4:3', text = `Placeholder ${aspectRatio}`) {
-  if (typeof aspectRatio !== 'string') {
-    throw new TypeError(`expected String. Instead got ${typeof aspectRatio}, ${aspectRatio}`)
-  }
-  if (!aspectRatioPattern.test(aspectRatio)) {
-    throw new Error(`aspectRatio must be in format width:height (e.g. "16:9"). Instead got ${aspectRatio}`)
-  }
-
-  // Load styles ONLY if not already present
-  if (!placeholderStyles) {
-    placeholderStyles = Glade.insertCSS(styles)
+  if (typeof aspectRatio !== 'string' || !aspectRatioPattern.test(aspectRatio)) {
+    throw new Error(`aspectRatio must be in format width:height ("16:9"). Instead got ${aspectRatio}`)
   }
 
   const [, width, height] = aspectRatio.match(aspectRatioPattern)
   const paddingTop = Number(height) / Number(width)
 
-  const placeholder = document.createElement('div')
-
-  placeholder.className = 'placeholder-frame'
-  placeholder.style = `padding-top: ${round(paddingTop * 100, 5)}%`
-  placeholder.innerHTML = `<div class="placeholder-inner">${text}</div>`
-
-  return placeholder
+  return `
+  <div class="placeholder-frame" style="padding-top: ${round(paddingTop * 100, 5)}%">
+    <div class="placeholder-inner">${text}</div>
+  </div>
+  `
 }
 
 
 export default () => {
+  Glade.insertCSS(styles)
   Glade.makePlaceholder = makePlaceholder
 }
