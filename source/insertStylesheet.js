@@ -9,12 +9,13 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
   // Find all stylesheets in the page
   var links = [...document.querySelectorAll('link')]
   var stylesheets = links.filter(link => link.rel === 'stylesheet')
+  const stylesheetURLs = stylesheets.map(stylesheet => stylesheet.href)
 
   if (!attributes.href) {
     throw new Error('Stylesheet href is required. Use syntax Glade.insertStylesheet({href: "PATH"})')
   }
 
-  if (stylesheets.includes(attributes.href)) {
+  if (stylesheetURLs.includes(attributes.href)) {
     throw new Error('Refused to Load Stylesheet: already present in the page source')
   }
 
