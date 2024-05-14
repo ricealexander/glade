@@ -1,4 +1,5 @@
-const splitString  = string => string ? string.split(/,\b/) : []
+const splitString       = string => string ? string.trim().split(/,\b/) : []
+const splitStringWSpace = string => string ? string.trim().split(/,\s/) : []
 
 
 function getMetadata () {
@@ -10,7 +11,7 @@ function getMetadata () {
 
   const dataLayer = JSON.parse(dataLayerElement.content)
 
-  dataLayer.authors    = splitString(dataLayer.author   || '')
+  dataLayer.authors    = splitStringWSpace(dataLayer.author || '')
   dataLayer.categories = splitString(dataLayer.category || '')
   dataLayer.tags       = splitString(dataLayer.keywords || '')
 
