@@ -30,7 +30,7 @@ Each of these scripts has an option whether or not it should persist when the us
 
 ### Other helper functions
 
-* `getMetadata` formats the page/story information contained within `brightspotDataLayer` in a way that is easy to use.
+* `getDataLayer` formats the page/story information contained within the `brightspot-dataLayer` meta tag in a way that is easy to use.
 * `pageMatches` is a tool that allows for pattern matching in page URLs. This can be useful for loading dynamic scripts based on the page URL.
 * `components` creates Grove lists populated with custom data.
 

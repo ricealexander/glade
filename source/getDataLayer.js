@@ -2,7 +2,7 @@ const splitString       = string => string ? string.trim().split(/,\b/) : []
 const splitStringWSpace = string => string ? string.trim().split(/,\s/) : []
 
 
-function getMetadata () {
+function getDataLayer () {
   const dataLayerElement = document.querySelector('meta[name="brightspot-dataLayer"]')
 
   if (!dataLayerElement || !dataLayerElement.content) {
@@ -18,4 +18,4 @@ function getMetadata () {
   return dataLayer
 }
 
-export default getMetadata
+export default getDataLayer

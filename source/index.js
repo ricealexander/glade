@@ -1,6 +1,6 @@
 // Utilities
 import { default as addIsolatedEventListener } from './addIsolatedEventListener'
-import { default as getMetadata              } from './getMetadata'
+import { default as getDataLayer             } from './getDataLayer'
 import { default as insertCSS                } from './insertCSS'
 import { default as insertScript             } from './insertScript'
 import { default as insertStylesheet         } from './insertStylesheet'
@@ -26,7 +26,7 @@ const Glade = {
   setIsolatedInterval,
 
   // Other helper functions
-  getMetadata,
+  getDataLayer,
   pageMatches,
 
   // Recreate Grove componenets with custom data
