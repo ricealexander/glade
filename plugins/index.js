@@ -6,6 +6,7 @@ import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
 import { default as loadDonateAsk       } from './loadDonateAsk'
 import { default as loadDonatePopUp     } from './loadDonatePopUp'
+import { default as replaceNewsletter   } from './replaceNewsletter'
 
 import { default as Placeholder         } from './components.Placeholder'
 
@@ -41,6 +42,13 @@ const plugins = [
 
   { fn: applyThemeByTag,       enabled: true,
     args: [['LGBT', 'LGBTQ'], LGBTTheme],
+  },
+
+  { fn: replaceNewsletter,  enabled: true,
+    args: ['STL Welcome Kit',
+      'https://app.e2ma.net/app2/audience/signup/1931618/1784312/', // The Gateway
+      'https://app.e2ma.net/app2/audience/signup/1992160/1784312/', // STL Welcome Kit
+    ],
   },
 ]
 
