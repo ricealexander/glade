@@ -5,7 +5,7 @@ import { default as identifyCurrentPage } from './identifyCurrentPage'
 import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
 import { default as loadDonateAsk       } from './loadDonateAsk'
-
+import { default as loadDonatePopUp     } from './loadDonatePopUp'
 
 import { default as Placeholder         } from './components.Placeholder'
 
@@ -36,6 +36,7 @@ const plugins = [
   { fn: formatTranscripts,   enabled: true },
   { fn: googleCustomSearch,  enabled: true },
   { fn: loadDonateAsk,       enabled: true },
+  { fn: loadDonatePopUp,     enabled: true },
   { fn: Placeholder,         enabled: true },
 
   { fn: applyThemeByTag,       enabled: true,
