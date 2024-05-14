@@ -36,6 +36,8 @@ const Glade = {
     ListD,
     StreamPill,
   },
+
+  onNavigate: [],
 }
 
 
