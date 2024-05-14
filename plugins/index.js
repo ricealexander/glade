@@ -2,7 +2,6 @@ import { default as applyThemeByTag     } from './applyThemeByTag'
 import { default as addUMSLAttribution  } from './addUMSLAttribution'
 import { default as animateLogos        } from './animateLogos'
 import { default as identifyCurrentPage } from './identifyCurrentPage'
-import { default as IEBannerMessage     } from './IEBannerMessage'
 import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
 import { default as Placeholder         } from './components.Placeholder'
@@ -37,10 +36,6 @@ const plugins = [
 
   { fn: applyThemeByTag,       enabled: true,
     args: [['LGBT', 'LGBTQ'], LGBTTheme],
-  },
-
-  { fn: IEBannerMessage,     enabled: false,
-    args: ['Not all features may be supported in Internet Explorer'],
   },
 ]
 
