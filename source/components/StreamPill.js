@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 // config
 //  program: 'St. Louis on the Air',
 //  episodeID: '00000174-2231-dd1b-a77f-3bf1a5c60000',

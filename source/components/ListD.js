@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 function formatTimestamp (stamp) {
   if (!stamp) return ''
 

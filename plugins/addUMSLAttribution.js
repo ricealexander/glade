@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import onNavigate from '../lib/onNavigate'
 
 
