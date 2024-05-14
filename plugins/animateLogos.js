@@ -48,7 +48,6 @@ const logosCSS = `
 }
 
 .stlpr-logo-lockup {
-  display: block;
   align-self: center;
   fill: white;
   margin-left: 17px;
