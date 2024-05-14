@@ -260,11 +260,15 @@ footer .Page-footer-columns {
   width: 100%;
 }
 
-.placeholder-inner {
+.placeholder-frame .placeholder-inner {
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
   padding: 10px;
+  text-align: center;
 
   /* http://projects.verou.me/css3patterns/#zig-zag */
   --stripe-color: #f5f5f5;
@@ -275,10 +279,6 @@ footer .Page-footer-columns {
     linear-gradient(45deg, var(--stripe-color) 25%, transparent 25%);
   background-size: 50px 50px;
   background-clip: content-box;
-
-  color: black;
-  font-size: 20px;
-  font-weight: bold;
 
   /* Aspect Ratio Hack */
   position: absolute;
