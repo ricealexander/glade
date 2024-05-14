@@ -60,10 +60,20 @@
   text-decoration: underline;
 }
 
+footer .Page-footer-columns {
+  flex-wrap: wrap;
+}
+
 .footer-UMSL-attribution {
   display: flex;
   align-items: flex-start;
   margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .footer-UMSL-attribution {
+    margin: 2rem 0 1rem 4rem;
+  }
 }
 
 .footer-UMSL-attribution svg {
