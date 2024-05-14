@@ -15,9 +15,7 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
     throw new Error('Stylesheet href is required. Use syntax Glade.insertStylesheet({href: "PATH"})')
   }
 
-  if (stylesheetURLs.includes(attributes.href)) {
-    throw new Error('Refused to Load Stylesheet: already present in the page source')
-  }
+  if (stylesheetURLs.includes(attributes.href)) return
 
   // Create a new stylesheet and inject it into the DOM
   var sheet = document.createElement('link')
