@@ -10,19 +10,16 @@ import applyAttributes from '../lib/applyAttributes'
 //   shouldPersist is a property because insertScript fails if the script is
 //   already present.
 
-function insertScript (attributes = {}, shouldPersist = false) {
-  // Find all external scripts on the page
-  const scripts = [...document.querySelectorAll('script')]
-  const externalScripts = scripts.filter(script => script.src)
+function insertScript (attributes, shouldPersist = false) {
+  if (!attributes || !attributes.src) {
+    throw new ReferenceError('Script src is required. Use syntax Glade.insertScript({src: "PATH"})')
+  }
 
-  // Fail loudly if script was not provided
-  if (!attributes.src) {
-    throw new Error('Script src is required. Use syntax Glade.insertScript({src: "PATH"})')
-  }
-  // Fail silently if script is already present
-  if (externalScripts.includes(attributes.src)) {
-    return
-  }
+  // Find all external scripts on the page
+  const scripts    = [...document.querySelectorAll('script[src]')]
+  const scriptURLs = scripts.map(script => script.scr)
+
+  if (scriptURLs.includes(attributes.src)) return
 
   // Create a new script and inject it into the DOM
   const newScript = document.createElement('script')
@@ -31,13 +28,12 @@ function insertScript (attributes = {}, shouldPersist = false) {
   const lastScript = scripts[scripts.length - 1]
   lastScript.after(newScript)
 
-  // Remove script if set not to persist
-  // WARNING! removing the script does not cancel intervals/eventListeners
+  // Remove script if not set to persist
   if (!shouldPersist) {
     onNavigate(() => newScript.remove(), { once: true })
   }
 
-  // Pass an HTML Reference to the script
+  // Return an HTML Reference to the script
   return newScript
 }
 
