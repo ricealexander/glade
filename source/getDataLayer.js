@@ -11,6 +11,7 @@ function getDataLayer () {
 
   const dataLayer = JSON.parse(dataLayerElement.content)
 
+  dataLayer.pageURL    = window.location.pathname
   dataLayer.authors    = splitStringWSpace(dataLayer.author || '')
   dataLayer.categories = splitString(dataLayer.category || '')
   dataLayer.tags       = splitString(dataLayer.keywords || '')
