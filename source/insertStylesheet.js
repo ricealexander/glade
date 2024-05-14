@@ -1,22 +1,9 @@
 import onNavigate from '../lib/onNavigate'
+import addAttributes from '../lib/addAttributes'
 
 
 // insertStylesheet (attributes [, shouldPersist])
 // load a given stylesheet if not already present on the page
-
-function addAttributes (element, attributes = {}) {
-  for (const [attribute, value] of Object.entries(attributes)) {
-    // support Boolean Attributes
-    if (typeof value === 'boolean') {
-      if (value) element.setAttribute(attribute, '')
-    }
-
-    else {
-      element.setAttribute(attribute, value)
-    }
-  }
-}
-
 
 function insertStylesheet (attributes = {}, shouldPersist = false) {
   // Find all stylesheets in the page

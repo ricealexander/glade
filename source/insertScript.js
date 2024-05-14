@@ -1,4 +1,5 @@
 import onNavigate from '../lib/onNavigate'
+import addAttributes from '../lib/addAttributes'
 
 
 // insertScript (attributes [, shouldPersist])
@@ -8,20 +9,6 @@ import onNavigate from '../lib/onNavigate'
 //   removing a script does not cancel intervals/event Listeners set by it
 //   shouldPersist is a property because insertScript fails if the script is
 //   already present.
-
-function addAttributes (element, attributes = {}) {
-  for (const [attribute, value] of Object.entries(attributes)) {
-    // support Boolean Attributes
-    if (typeof value === 'boolean') {
-      if (value) element.setAttribute(attribute, '')
-    }
-
-    else {
-      element.setAttribute(attribute, value)
-    }
-  }
-}
-
 
 function insertScript (attributes = {}, shouldPersist = false) {
   // Find all external scripts on the page
