@@ -1,3 +1,6 @@
+import onNavigate from '../lib/onNavigate'
+
+
 const stlprLogo = `
 <svg
   class="stlpr-logo"
@@ -132,7 +135,7 @@ const logosCSS = `
 `
 
 
-export default () => {
+function replaceLogos () {
   const headerContainer = document.querySelector('.PH-top-bar .PH-logo > a[aria-label="home page"]')
   const menuContainer   = document.querySelector('.PH-ham-m .PH-logo > a[aria-label="home page"]')
 
@@ -140,9 +143,14 @@ export default () => {
     throw new Error('Could not find logo containers.')
   }
 
+  headerContainer.innerHTML = stlprLogo + nprLogo
+  menuContainer.innerHTML = stlprLogo
+}
+
+
+export default () => {
   Glade.insertCSS(logosCSS, true) // true: CSS should persist on navigation
 
-  menuContainer.innerHTML   = stlprLogo
-  headerContainer.innerHTML = stlprLogo
-  headerContainer.insertAdjacentHTML('afterend', nprLogo)
+  replaceLogos()
+  onNavigate(() => replaceLogos())
 }
