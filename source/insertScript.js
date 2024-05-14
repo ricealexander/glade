@@ -1,5 +1,5 @@
 import onNavigate from '../lib/onNavigate'
-import addAttributes from '../lib/addAttributes'
+import applyAttributes from '../lib/applyAttributes'
 
 
 // insertScript (attributes [, shouldPersist])
@@ -26,7 +26,7 @@ function insertScript (attributes = {}, shouldPersist = false) {
 
   // Create a new script and inject it into the DOM
   const newScript = document.createElement('script')
-  addAttributes(newScript, attributes)
+  applyAttributes(newScript, attributes)
 
   const lastScript = scripts[scripts.length - 1]
   lastScript.after(newScript)

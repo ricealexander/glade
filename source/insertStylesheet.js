@@ -1,5 +1,5 @@
 import onNavigate from '../lib/onNavigate'
-import addAttributes from '../lib/addAttributes'
+import applyAttributes from '../lib/applyAttributes'
 
 
 // insertStylesheet (attributes [, shouldPersist])
@@ -20,7 +20,7 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
 
   // Create a new stylesheet and inject it into the DOM
   var sheet = document.createElement('link')
-  addAttributes(sheet, attributes)
+  applyAttributes(sheet, attributes)
   sheet.rel = 'stylesheet'
 
   var lastLink = links[links.length - 1]
