@@ -7,7 +7,6 @@ module.exports = {
   },
 
   globals: {
-    brightspotDataLayer: 'readonly',
     Glade: 'writable',
   },
 

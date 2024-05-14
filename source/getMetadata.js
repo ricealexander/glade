@@ -2,40 +2,27 @@ const splitString  = string => string ? string.split(/,\b/) : []
 
 
 function getMetadata () {
-  if (!brightspotDataLayer) {
-    throw new ReferenceError('Could not read Brightspot Data Layer.')
+  const dataLayerElement = document.querySelector('meta[name="brightspot-dataLayer"]')
+
+  if (!dataLayerElement || !dataLayerElement.content) {
+    throw new ReferenceError('Failed to locate "brightspot-dataLayer" meta tag.')
   }
 
-  if (!brightspotDataLayer.keywords || !brightspotDataLayer.keywords.trim()) {
-    throw new ReferenceError (`Could not read Tags from Data Layer, "${brightspotDataLayer.keywords}".`)
-  }
+  const dataLayer = JSON.parse(dataLayerElement.content)
 
-  const metadata = {
-    storyTitle:        brightspotDataLayer.storyTitle   || document.querySelector('h1')?.textContent || document.title,
-    pageType:          brightspotDataLayer.pageType     || '',
-    program:           brightspotDataLayer.program      || '',
-    timezone:          brightspotDataLayer.timezone     || 'US/Central',
-    hasInlineAudio:    !!(brightspotDataLayer.inlineAudio || 0),
-    publishedDate:     brightspotDataLayer.publishedDate ? new Date(brightspotDataLayer.publishedDate) : '',
+  dataLayer.authors        = splitString(dataLayer.author   || '')
+  dataLayer.categories     = splitString(dataLayer.category || '')
+  dataLayer.tags           = splitString(dataLayer.keywords || '')
 
-    authors:           splitString(brightspotDataLayer.author   || ''),
-    categories:        splitString(brightspotDataLayer.category || ''),
-    tags:              splitString(brightspotDataLayer.keywords || ''),
+  dataLayer.hasInlineAudio = !!(dataLayer.inlineAudio || 0)
+  dataLayer.publishedDate  = dataLayer.publishedDate ? new Date(dataLayer.publishedDate) : ''
+  dataLayer.storyTitle     = dataLayer.storyTitle || document.querySelector('h1')?.textContent || document.title
 
-    brightspotStoryID: brightspotDataLayer.bspStoryId   || null,
-    NPRStoryID:        brightspotDataLayer.nprStoryId   || null,
-    stationID:         brightspotDataLayer.stationOrgId || null,
-    station:           brightspotDataLayer.station      || 'St. Louis Public Radio',
-    siteName:          brightspotDataLayer.siteName     || 'STLPR',
-    isNPRStation:      brightspotDataLayer.nprCmsSite   || false,
+  dataLayer.siteName       = dataLayer.siteName   || 'STLPR'
+  dataLayer.station        = dataLayer.station    || 'St. Louis Public Radio'
+  dataLayer.timezone       = dataLayer.timezone   || 'US/Central'
 
-    // storyOrgId: displays 0 on story pages
-    // storyTheme: duplicate of pageType
-    // wordcount: displays 0 on story pages
-  }
-
-  return metadata
+  return dataLayer
 }
-
 
 export default getMetadata
