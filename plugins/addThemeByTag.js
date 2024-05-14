@@ -11,6 +11,6 @@ function applyTheme (tags, theme) {
 
 
 export default (...parameters) => {
-  applyTheme()
+  applyTheme(...parameters)
   onNavigate(() => applyTheme(...parameters))
 }
