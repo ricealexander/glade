@@ -13,7 +13,7 @@
     St. Louis Public Radio is a listener-supported service of the
     <a href="https://www.umsl.edu">University of Missouri–St. Louis</a>.
   </small>
-</div>`;function i(){var e=document.querySelector("footer nav.FooterNavigation, footer nav.SectionNavigation");if(!e)throw new Error("Could not find footer navigation for UMSL Attribution.");e.insertAdjacentHTML("beforeend",o)}a.default=()=>{Glade.insertCSS(`
+</div>`;function i(){var e=document.querySelector("footer .Page-footer-columns");if(!e)throw new Error("Could not find footer navigation for UMSL Attribution.");e.insertAdjacentHTML("beforeend",o)}a.default=()=>{Glade.insertCSS(`
 .hamburger-menu-UMSL-attribution {
   display: flex;
   margin-top: 2rem;

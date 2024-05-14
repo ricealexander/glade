@@ -110,7 +110,7 @@ const attributionCSS = `
 
 
 function addUMSLFooterAttribution () {
-  const footerNavigation = document.querySelector('footer nav.FooterNavigation, footer nav.SectionNavigation')
+  const footerNavigation = document.querySelector('footer .Page-footer-columns')
 
   if (!footerNavigation) {
     throw new Error('Could not find footer navigation for UMSL Attribution.')
