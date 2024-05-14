@@ -109,11 +109,24 @@ const attributionCSS = `
 `
 
 
+function addUMSLNavAttribution () {
+  const menuContainer = document.querySelector('.PH-ham-m-wrapper')
+
+  if (!menuContainer) {
+    console.error('Could not find menu container for UMSL Attribution.')
+    return
+  }
+
+  menuContainer.insertAdjacentHTML('beforeend', menuAttributionHTML)
+}
+
+
 function addUMSLFooterAttribution () {
   const footerNavigation = document.querySelector('footer .Page-footer-columns')
 
   if (!footerNavigation) {
-    throw new Error('Could not find footer navigation for UMSL Attribution.')
+    console.error('Could not find footer navigation for UMSL Attribution.')
+    return
   }
 
   footerNavigation.insertAdjacentHTML('beforeend', footerAttributionHTML)
@@ -123,17 +136,9 @@ function addUMSLFooterAttribution () {
 export default () => {
   Glade.insertCSS(attributionCSS, true) // true: CSS should persist on navigation
 
-  // Add the hamburger-menu attribution
-  const menuContainer = document.querySelector('.PH-ham-m-wrapper')
-
-  if (!menuContainer) {
-    throw new Error('Could not find menu container for UMSL Attribution.')
-  }
-
-  menuContainer.insertAdjacentHTML('beforeend', menuAttributionHTML)
-
-  // Add the footer attirubtion
+  addUMSLNavAttribution()
   addUMSLFooterAttribution()
+
   // Unlike the nav, which persists in Grove, the footer refreshes each page load
   onNavigate(() => addUMSLFooterAttribution())
 }
