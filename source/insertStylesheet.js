@@ -5,24 +5,23 @@ import applyAttributes from '../lib/applyAttributes'
 // insertStylesheet (attributes [, shouldPersist])
 // load a given stylesheet if not already present on the page
 
-function insertStylesheet (attributes = {}, shouldPersist = false) {
-  // Find all stylesheets in the page
-  var links = [...document.querySelectorAll('link')]
-  var stylesheets = links.filter(link => link.rel === 'stylesheet')
-  const stylesheetURLs = stylesheets.map(stylesheet => stylesheet.href)
-
-  if (!attributes.href) {
-    throw new Error('Stylesheet href is required. Use syntax Glade.insertStylesheet({href: "PATH"})')
+function insertStylesheet (attributes, shouldPersist = false) {
+  if (!attributes || !attributes.href) {
+    throw new ReferenceError('Stylesheet href is required. Use syntax Glade.insertStylesheet({href: "PATH"})')
   }
+
+  // Find all stylesheets in the page
+  const stylesheets    = [...document.querySelectorAll('link[rel=stylesheet]')]
+  const stylesheetURLs = stylesheets.map(stylesheet => stylesheet.href)
 
   if (stylesheetURLs.includes(attributes.href)) return
 
   // Create a new stylesheet and inject it into the DOM
-  var sheet = document.createElement('link')
-  applyAttributes(sheet, attributes)
+  const sheet = document.createElement('link')
   sheet.rel = 'stylesheet'
+  applyAttributes(sheet, attributes)
 
-  var lastLink = links[links.length - 1]
+  const lastLink = stylesheets[stylesheets.length - 1]
   lastLink.after(sheet)
 
   // Remove script if set not to persist
@@ -30,7 +29,7 @@ function insertStylesheet (attributes = {}, shouldPersist = false) {
     onNavigate(() => sheet.remove(), { once: true })
   }
 
-  // Pass an HTML Reference to the stylesheet
+  // Return an HTML Reference
   return sheet
 }
 
