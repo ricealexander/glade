@@ -1,4 +1,8 @@
-export default () => {
+/**
+ * Replace Grove site search with Google Custom Search form
+ */
+
+export default function googleCustomSearch () {
   const prefersGroveSearch = /[&?]search=grove/.test(window.location.search)
   const searchForms = document.querySelectorAll('form.PH-search-form')
 

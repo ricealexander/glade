@@ -1,9 +1,13 @@
-import onNavigate from '../lib/onNavigate'
+import onNavigate      from '../lib/onNavigate'
 import applyAttributes from '../lib/applyAttributes'
 
 
-// insertStylesheet (attributes [, shouldPersist])
-// load a given stylesheet if not already present on the page
+/**
+ * Load an external stylesheet if not already present on the page
+ * @param   {Object}   attributes     Attributes to apply to a `style` element. `href` element is required
+ * @param   {Boolean}  shouldPersist  Should stylesheet remain as the user navigates to another page?
+ * @returns {Element}                 A reference to the external stylesheet so it can be manipulated
+ */
 
 function insertStylesheet (attributes, shouldPersist = false) {
   if (!attributes || !attributes.href) {

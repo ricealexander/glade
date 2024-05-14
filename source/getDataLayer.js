@@ -2,6 +2,11 @@ const splitString       = string => string ? string.trim().split(/,\b/) : []
 const splitStringWSpace = string => string ? string.trim().split(/,\s/) : []
 
 
+/**
+ * Return the BrightSpot dataLayer and clean up `authors`, `categories`, and `tags`
+ * @returns {Object}  A copy of the BrightSpot dataLayer containing page metadata
+ */
+
 function getDataLayer () {
   const dataLayerElement = document.querySelector('meta[name="brightspot-dataLayer"]')
 

@@ -1,14 +1,13 @@
-import onNavigate from '../lib/onNavigate'
+import onNavigate      from '../lib/onNavigate'
 import applyAttributes from '../lib/applyAttributes'
 
 
-// insertScript (attributes [, shouldPersist])
-// load a given script if not already present on the page
-
-// WARNING: insertScript has a "shouldPersist" property
-//   removing a script does not cancel intervals/event Listeners set by it
-//   shouldPersist is a property because insertScript fails if the script is
-//   already present.
+/**
+ * Load an external JavaScript file if not already present on the page
+ * @param   {Object}   attributes     Attributes to apply to a `script` element. `src` element is required
+ * @param   {Boolean}  shouldPersist  Should script remain as the user navigates to another page? ⚠️ Removing does not cancel intervals/eventListeners
+ * @returns {Element}                 A reference to the external script so it can be manipulated
+ */
 
 function insertScript (attributes, shouldPersist = false) {
   if (!attributes || !attributes.src) {

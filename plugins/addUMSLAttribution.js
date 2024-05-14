@@ -141,7 +141,11 @@ function addUMSLFooterAttribution () {
 }
 
 
-export default () => {
+/**
+ * Add UMSL logo & credit line to the collapsible navigation menu and footer
+ */
+
+export default function addUMSLAttribution () {
   Glade.insertCSS(attributionCSS, true) // true: CSS should persist on navigation
 
   addUMSLNavAttribution()

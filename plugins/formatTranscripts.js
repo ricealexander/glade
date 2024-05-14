@@ -2,8 +2,8 @@ import onNavigate from '../lib/onNavigate'
 
 
 function injectTranscripts () {
-  // We'll need to detect whether a transcript is present.
-  // Look for a RichText Module with a Subhead containing the word "Transcript"
+  // Find Transcripts
+  // Transcripts are located in RichText Modules with a Subhead (h2) containing "Transcript"
   let richTextModules = document.querySelectorAll('.RichTextModule')
 
   for (let module of richTextModules) {
@@ -30,7 +30,11 @@ function injectTranscripts () {
 }
 
 
-export default () => {
+/**
+ * Convert RichText modules containing "Transcript" into collapseable sections
+ */
+
+export default function formatTranscripts () {
   injectTranscripts()
   onNavigate(() => injectTranscripts())
 }

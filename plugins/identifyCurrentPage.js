@@ -1,7 +1,7 @@
 import onNavigate from '../lib/onNavigate'
 
 
-function identifyCurrentPage () {
+function storePageData () {
   const html = document.documentElement
   html.dataset.page = window.location.pathname
 
@@ -11,7 +11,11 @@ function identifyCurrentPage () {
 }
 
 
-export default () => {
-  identifyCurrentPage()
-  onNavigate(() => identifyCurrentPage())
+/**
+ * Encode page path and other metadata into the HTML for targeting with CSS
+ */
+
+export default function identifyCurrentPage () {
+  storePageData()
+  onNavigate(() => storePageData())
 }

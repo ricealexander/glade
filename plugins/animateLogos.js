@@ -158,7 +158,11 @@ function replaceLogos () {
 }
 
 
-export default () => {
+/**
+ * Apply a hover animation to the STLPR logos in the header and collapsible navigation
+ */
+
+export default function animateLogos () {
   Glade.insertCSS(logosCSS, true) // true: CSS should persist on navigation
 
   replaceLogos()

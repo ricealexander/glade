@@ -1,28 +1,42 @@
-// compare a page using some criteria
-// String criteria: "/we-live-here/awards"
-// RegExp criteria: /\/we-live-here\/awards/
-// Function criteria: (page) => page.startsWith('/we-live-here/awards')
+// Criteria
+// string:    '/we-live-here/awards'                           TRUE if Page URL exactly matches
+// RegExp:    /\/we-live-here\/awards/                         TRUE if RegExp.test(string) is TRUE
+// Function:  page => page.startsWith('/we-live-here/awards')  TRUE if function returns a non-falsey value
 
-function matchesCriteria (page, criteria) {
-  if (typeof criteria === 'string') {
-    return page === criteria
+
+/**
+ * Test a string using some criterion
+ * @param   {string}                  string     String to perfrom comparisons against
+ * @param   {string|RegExp|Function}  criterion  Criteria to test against the string; may be a `"string"`, `/RegExp/`, or `() => Function`
+ * @returns {Boolean}
+ */
+
+function matchesCriterion (string, criterion) {
+  if (typeof criterion === 'string') {
+    return string === criterion
   }
 
-  if (criteria instanceof RegExp) {
-    return criteria.test(page)
+  if (criterion instanceof RegExp) {
+    return criterion.test(string)
   }
 
-  if (typeof criteria === 'function') {
-    return criteria(page)
+  if (typeof criterion === 'function') {
+    return criterion(string)
   }
 
-  throw new Error(`Criteria must be a String, Regular Expression, or Function. Instead got ${typeof criteria}, ${criteria}`)
+  throw new Error(`Criterion must be a String, Regular Expression, or Function. Instead got ${typeof criterion}, ${criterion}`)
 }
 
 
-function pageMatches (...criterias) {
+/**
+ * Test a page using some criteria
+ * @param   {...(string|RegExp|Function)}  criteria  At least one criterion to compare against the page URL; may be a `"string"`, `/RegExp/`, or `() => Function`
+ * @returns {Boolean}
+ */
+
+function pageMatches (...criteria) {
   const currentPage = window.location.pathname
-  return criterias.some(criteria => matchesCriteria(currentPage, criteria))
+  return criteria.some(criterion => matchesCriterion(currentPage, criterion))
 }
 
 

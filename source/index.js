@@ -29,7 +29,7 @@ const Glade = {
   getDataLayer,
   pageMatches,
 
-  // Recreate Grove componenets with custom data
+  // Recreate Grove components with custom data
   components: {
     ListB,
     ListC,
@@ -43,7 +43,6 @@ const Glade = {
 
 // Hook into Grove Navigation
 Glade.currentPage = window.location.pathname
-
 
 setInterval(() => {
   const currentPage = window.location.pathname

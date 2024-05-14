@@ -1,15 +1,3 @@
-// Given an aspect ratio, as a string of width:height (e.g. "16:9"),
-// return a HTML markup that satisfies the Aspect Ratio
-// padding is Height / Width
-
-const aspectRatioPattern = /^(\d+):(\d+)$/
-
-
-function round (number, places = 0) {
-  return Math.round(number * (10 ** places)) / (10 ** places)
-}
-
-
 const styles = `
 .placeholder-frame {
   border: 3px solid currentColor;
@@ -53,6 +41,20 @@ const styles = `
 `
 
 
+function round (number, places = 0) {
+  return Math.round(number * (10 ** places)) / (10 ** places)
+}
+
+
+const aspectRatioPattern = /^(\d+):(\d+)$/
+
+/**
+ * Make a placeholder HTML block for use in mockups
+ * @param   {string} aspectRatio  An aspect ratio in WIDTH:HEIGHT (such as "16:9")
+ * @param   {string} text         Text to display in the placeholder
+ * @returns {string}              The HTML content of the placeholder
+ */
+
 function makePlaceholder (aspectRatio = '4:3', text = `Placeholder ${aspectRatio}`) {
   if (typeof aspectRatio !== 'string' || !aspectRatioPattern.test(aspectRatio)) {
     throw new Error(`aspectRatio must be in format width:height ("16:9"). Instead got ${aspectRatio}`)
@@ -68,6 +70,13 @@ function makePlaceholder (aspectRatio = '4:3', text = `Placeholder ${aspectRatio
   `
 }
 
+
+/**
+ * Make a placeholder HTML block for use in mockups
+ * @param   {string} aspectRatio  An aspect ratio in WIDTH:HEIGHT (such as "16:9")
+ * @param   {string} text         Text to display in the placeholder
+ * @returns {string}              The HTML content of the placeholder
+ */
 
 export default () => {
   Glade.insertCSS(styles)
