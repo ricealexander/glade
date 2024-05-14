@@ -5,7 +5,7 @@ import { default as identifyCurrentPage } from './identifyCurrentPage'
 import { default as IEBannerMessage     } from './IEBannerMessage'
 import { default as formatTranscripts   } from './formatTranscripts'
 import { default as googleCustomSearch  } from './googleCustomSearch'
-import { default as makePlaceholder     } from './makePlaceholder'
+import { default as Placeholder         } from './components.Placeholder'
 
 
 const LGBTTheme = `
@@ -33,7 +33,7 @@ const plugins = [
   { fn: identifyCurrentPage, enabled: true },
   { fn: formatTranscripts,   enabled: true },
   { fn: googleCustomSearch,  enabled: true },
-  { fn: makePlaceholder,     enabled: true },
+  { fn: Placeholder,         enabled: true },
 
   { fn: applyThemeByTag,       enabled: true,
     args: [['LGBT', 'LGBTQ'], LGBTTheme],

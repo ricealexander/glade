@@ -71,5 +71,5 @@ function makePlaceholder (aspectRatio = '4:3', text = `Placeholder ${aspectRatio
 
 export default () => {
   Glade.insertCSS(styles)
-  Glade.makePlaceholder = makePlaceholder
+  Glade.components.Placeholder = makePlaceholder
 }
