@@ -1,10 +1,17 @@
 import onNavigate from '../lib/onNavigate'
 
 
+const stylesheets = []
+
 // insertCSS (markup [, shouldPersist])
 // inserts a style tag with raw CSS
 
 function insertCSS (markup, shouldPersist = false) {
+  // Fail silently if styles already exist
+  for (let stylesheet of stylesheets) {
+    if (stylesheet.textContent == markup) return
+  }
+
   // Create the styles and append them
   const styles = document.createElement('style')
   styles.textContent = markup
